@@ -1,0 +1,25 @@
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+	<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+		<h1>pokemon manager</h1>
+	</a>
+	<ul class="nav nav-pills">
+		{% if user %}
+			<li class="nav-item">
+				<a href="/home" class="nav-link" aria-current="page">Liste des pokemon de {{user.firstname}}</a>
+			</li>
+			<li class="nav-item">
+				<a href="/addPokemon" class="nav-link">Ajouter un pokemon</a>
+			</li>
+			<li class="nav-item">
+				<a href="/disconnect" class="nav-link">Se deconnecter</a>
+			</li>
+		{% else %}
+			<li class="nav-item">
+				<a href="/login" class="nav-link" aria-current="page">Connexion</a>
+			</li>
+			<li class="nav-item">
+				<a href="/subscribe" class="nav-link">Inscription</a>
+			</li>
+		{% endif %}
+	</ul>
+</header>

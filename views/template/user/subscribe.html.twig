@@ -1,0 +1,39 @@
+{% extends "../../main.html.twig" %}
+{% block main %}
+	<h2 class="text-center">S'inscrire</h2>
+	<div class="container">
+		<div id='error'></div>
+		<div class="row">
+			<div class="mx-auto">
+				{% for error in errors %}
+					<p class="text-center text-danger">{{error}}</p>
+				{% endfor %}
+				<div>
+					<form class="col-md-6 mx-auto mt-5 form" method="post" action="/subscribe">
+						<div>
+							<label for="name">Nom</label>
+							<input type="text" class="form-control" name="name">
+						</div>
+
+						<div>
+							<label for="firstname">Prénom</label>
+							<input type="text" class="form-control" name="firstname">
+						</div>
+
+						<div>
+							<label for="mail">E-mail</label>
+							<input type="text" class="form-control" name="mail">
+						</div>
+
+						<div>
+							<label for="password">Password</label>
+							<input type="password" class="form-control" name="password">
+						</div>
+
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

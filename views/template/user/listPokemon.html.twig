@@ -1,0 +1,41 @@
+{% extends "./../../main.html.twig" %}
+
+{% block modal %}
+	{% include "../../template/layout/_modalDeletePokemon.html.twig" %}
+{% endblock %}
+
+{% block main %}
+	<div class="row">
+		{% for badge in user.badge %}
+			<div class="col-md-1">
+				<img height="50px" src="./images/badges/{{badge.image}}" alt="">
+			</div>
+		{% endfor %}
+	</div>
+	<div class="container mt-5">
+		<div class="row">
+			{% for pokemon in pokemons %}
+				<div class="col-md-3 card mx-auto">
+					<div class='card-header'>
+						<img src="./images/pokeImages/{{pokemon.user}}/{{pokemon.picture}}" class="card-img-top"/>
+					</div>
+					<div class="card-body">
+						<h2 class="card-title text-center">{{pokemon.name}}</h5>
+						<p class="card-text text-center">
+							<b>type:</b>
+							{{pokemon.type}}</p>
+						<p class="card-text text-center">
+							<b>niveau:</b>
+							{{pokemon.level}}</p>
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<a href="/updatePokemon/{{pokemon.id}}" class="btn btn-primary ">Modifer</a>
+								<a class="btn btn-danger" data-bs-pokeid="{{pokemon.id}}" data-bs-toggle="modal" data-bs-target="#modal">Supprimer</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

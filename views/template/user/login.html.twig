@@ -1,0 +1,22 @@
+{% extends "../../main.html.twig" %}
+{% block main %}
+    <h2 class="text-center">Connexion</h2>
+	<div class="container">
+		<div id='error' class="text-center text-danger">{{error}}</div>
+		<div class="row">
+			<form class="col-md-6 mx-auto mt-5 form" method="post" action="/login">
+				<div>
+					<label for="mail">Mail</label>
+					<input type="mail" class="form-control" name="mail">
+				</div>
+				<div>
+					<label for="firstname">Password</label>
+					<input type="password" class="form-control" name="password">
+				</div>
+				<div class="text-center mt-4">
+					<button type="submit" class="btn btn-primary">Se connecter</button>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "../../main.html.twig" %}
+{% block main %}
+	<div class="container">
+		<div class="row">
+		{% set test = false %}
+			<form class="col-md-6 mx-auto mt-5 form" method="post" enctype="multipart/form-data" action=" {% if action == "updatePokemon" %}/{{action}}/{{pokemon._id}}{% else %}/addPokemon{% endif %}">
+				<div>
+					<label for="name">Nom</label>
+					<input type="text" class="form-control" id="name" name="name" placeholder="Entrer un nom" value="{{pokemon.name}}">
+				</div>
+				<div>
+					<label for="type">Type</label>
+					<select name="type" class="form-control" id="pet-select" value='{{pokemon.type}}'>
+						<option value="">Choisissez un type</option>
+						<option {% if pokemon.type == "feu" %}selected{% endif %} value="feu">feu</option>
+						<option {% if pokemon.type == "eau" %}selected{% endif %} value="eau">eau</option>
+						<option {% if pokemon.type == "plante" %}selected{% endif %} value="plante">plante</option>
+						<option {% if pokemon.type == "poison" %}selected{% endif %} value="poison">poison</option>
+						<option {% if pokemon.type == "sol" %}selected{% endif %} value="sol">sol</option>
+						<option {% if pokemon.type == "roche" %}selected{% endif %} value="roche">roche</option>
+						<option {% if pokemon.type == "dragon" %}selected{% endif %} value="dragon">dragon</option>
+						<option {% if pokemon.type == "vol" %}selected{% endif %} value="vol">vol</option>
+						<option {% if pokemon.type == "combat" %}selected{% endif %} value="combat">combat</option>
+						<option {% if pokemon.type == "spectre" %}selected{% endif %} value="spectre">spectre</option>
+						<option {% if pokemon.type == "glace" %}selected{% endif %} value="glace">glace</option>
+						<option {% if pokemon.type == "electrique" %}selected{% endif %} value="electrique">electrique</option>
+						<option {% if pokemon.type == "insecte" %}selected{% endif %} value="insecte">insecte</option>
+						<option {% if pokemon.type == "normal" %}selected{% endif %} value="normal">normal</option>
+					</select>
+				</div>
+				<div>
+					<label for="level">Niveau</label>
+					<input type="number" class="form-control" id="level" name="level" placeholder="Entrer un niveau" value="{{pokemon.level}}">
+				</div>
+
+				<div>
+					<label for="image">Image</label>
+					<input type="file" class="form-control" id="image" name="picture" placeholder="" value="{{pokemon.picture}}">
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}
